@@ -399,7 +399,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 105,
+   "execution_count": 146,
    "metadata": {},
    "outputs": [
     {
@@ -418,18 +418,16 @@
        "    .dataframe thead tr th {\n",
        "        text-align: left;\n",
        "    }\n",
-       "\n",
-       "    .dataframe thead tr:last-of-type th {\n",
-       "        text-align: right;\n",
-       "    }\n",
        "</style>\n",
        "<table border=\"1\" class=\"dataframe\">\n",
        "  <thead>\n",
        "    <tr>\n",
        "      <th></th>\n",
+       "      <th>version</th>\n",
        "      <th colspan=\"5\" halign=\"left\">sum_gamerounds</th>\n",
        "    </tr>\n",
        "    <tr>\n",
+       "      <th></th>\n",
        "      <th></th>\n",
        "      <th>min</th>\n",
        "      <th>mean</th>\n",
@@ -437,18 +435,11 @@
        "      <th>max</th>\n",
        "      <th>std</th>\n",
        "    </tr>\n",
-       "    <tr>\n",
-       "      <th>version</th>\n",
-       "      <th></th>\n",
-       "      <th></th>\n",
-       "      <th></th>\n",
-       "      <th></th>\n",
-       "      <th></th>\n",
-       "    </tr>\n",
        "  </thead>\n",
        "  <tbody>\n",
        "    <tr>\n",
-       "      <th>gate_30</th>\n",
+       "      <th>0</th>\n",
+       "      <td>gate_30</td>\n",
        "      <td>0</td>\n",
        "      <td>52.456264</td>\n",
        "      <td>17</td>\n",
@@ -456,7 +447,8 @@
        "      <td>256.716423</td>\n",
        "    </tr>\n",
        "    <tr>\n",
-       "      <th>gate_40</th>\n",
+       "      <th>1</th>\n",
+       "      <td>gate_40</td>\n",
        "      <td>0</td>\n",
        "      <td>51.298776</td>\n",
        "      <td>16</td>\n",
@@ -468,20 +460,19 @@
        "</div>"
       ],
       "text/plain": [
-       "        sum_gamerounds                                     \n",
-       "                   min       mean median    max         std\n",
-       "version                                                    \n",
-       "gate_30              0  52.456264     17  49854  256.716423\n",
-       "gate_40              0  51.298776     16   2640  103.294416"
+       "   version sum_gamerounds                                     \n",
+       "                      min       mean median    max         std\n",
+       "0  gate_30              0  52.456264     17  49854  256.716423\n",
+       "1  gate_40              0  51.298776     16   2640  103.294416"
       ]
      },
-     "execution_count": 105,
+     "execution_count": 146,
      "metadata": {},
      "output_type": "execute_result"
     }
    ],
    "source": [
-    "gamerounds_by_version.groupby('version',as_index=False).agg(['min','mean',np.median,'max', np.std])"
+    "gamerounds_by_version.groupby('version',as_index=False).agg(['min','mean',np.median,'max', np.std]).reset_index()"
    ]
   },
   {
